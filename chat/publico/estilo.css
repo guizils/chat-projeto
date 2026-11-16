@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  color: #172b27;
+}
+
+.chat {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  height: 100dvh;
+}
+
+.lateral,
+.conversa {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.lateral {
+  border-right: 1px solid #d5dfdc;
+}
+
+.conversa {
+  background: #efeae2;
+}
+
+header,
+.acoes {
+  padding: 0.85rem;
+  background: #eef3f1;
+}
+
+header {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.acoes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button,
+input {
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #a8bbb5;
+  border-radius: 0.4rem;
+}
+
+button {
+  background: #17674f;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+#lista-conversas {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: auto;
+}
+
+#lista-conversas button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  color: inherit;
+  background: white;
+  border: 0;
+  border-bottom: 1px solid #d5dfdc;
+  border-radius: 0;
+  overflow-wrap: anywhere;
+}
+
+#lista-conversas button[aria-current="true"],
+#lista-conversas button:hover {
+  background: #e2f1ea;
+}
+
+#lista-conversas small {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#mensagens {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.55rem;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.mensagem {
+  align-self: flex-start;
+  max-width: 80%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: white;
+  overflow-wrap: anywhere;
+}
+
+.mensagem.propria {
+  align-self: flex-end;
+  background: #dcf8c6;
+}
+
+.mensagem strong,
+.mensagem time {
+  display: block;
+  font-size: 0.8rem;
+}
+
+.mensagem time {
+  text-align: right;
+}
+
+#texto-mensagem {
+  flex: 1;
+  min-width: 0;
+}
+
+#aviso,
+#aviso-janela {
+  margin: 0.5rem 1rem;
+  color: #8a2525;
+}
+
+dialog {
+  width: min(25rem, 90vw);
+  border: 1px solid #a8bbb5;
+  border-radius: 0.5rem;
+}
+
+dialog::backdrop {
+  background: #0006;
+}
+
+dialog fieldset {
+  margin: 0.75rem 0;
+}
+
+#lista-visitantes {
+  display: grid;
+  gap: 0.4rem;
+  max-height: 35vh;
+  overflow: auto;
+}
+
+@media (max-width: 640px) {
+  .chat {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 32%) minmax(0, 1fr);
+  }
+}

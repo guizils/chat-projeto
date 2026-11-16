@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat em tempo real</title>
+  <link rel="stylesheet" href="estilo.css">
+  <script src="/socket.io/socket.io.js" defer></script>
+  <script src="chat.js" defer></script>
+</head>
+<body>
+  <div class="chat">
+    <aside class="lateral">
+      <header id="nome-visitante">Conectando…</header>
+      <div class="acoes">
+        <button id="nova-conversa" type="button" disabled>Nova conversa</button>
+        <button id="novo-grupo" type="button" disabled>Novo grupo</button>
+      </div>
+      <ul id="lista-conversas" aria-label="Conversas"></ul>
+    </aside>
+    <main class="conversa">
+      <header id="titulo-conversa">Selecione uma conversa</header>
+      <p id="aviso" role="status" hidden></p>
+      <div id="mensagens" role="log" aria-label="Mensagens"></div>
+      <form id="formulario-mensagem" class="acoes">
+        <input id="texto-mensagem" aria-label="Mensagem" placeholder="Digite sua mensagem…" maxlength="2000" required disabled>
+        <button id="enviar" disabled>Enviar</button>
+      </form>
+    </main>
+  </div>
+  <dialog id="janela-conversa" aria-labelledby="titulo-janela">
+    <form id="formulario-conversa">
+      <h2 id="titulo-janela"></h2>
+      <label id="campo-grupo" hidden>
+        Nome do grupo
+        <input id="nome-grupo" maxlength="80">
+      </label>
+      <fieldset>
+        <legend>Participantes</legend>
+        <div id="lista-visitantes"></div>
+      </fieldset>
+      <p id="aviso-janela" role="status" hidden></p>
+      <div class="acoes">
+        <button id="cancelar" type="button">Cancelar</button>
+        <button id="criar">Criar</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
